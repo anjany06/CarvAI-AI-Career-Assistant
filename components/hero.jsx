@@ -1,9 +1,30 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
 const HeroSection = () => {
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const imageElement = imageRef.current;
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // scrollThreshold means jaise hi 100 cross ho hme tild kr deni h image
+      const scrollThreshold = 100;
+
+      if (scrollPosition > scrollThreshold) {
+        imageElement.classList.add("scrolled");
+      } else {
+        imageElement.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
@@ -13,12 +34,12 @@ const HeroSection = () => {
             <br />
             Professional Success
           </h1>
-          <p>
+          <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
             Advance your career with personalized guidance, interview prep, and
             AI- powered tools for job success.
           </p>
         </div>
-        <div>
+        <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
             <Button size="lg" className="px-8">
               Get Started
@@ -30,8 +51,12 @@ const HeroSection = () => {
             </Button>
           </Link>
         </div>
-        <div>
-          <div>
+
+        {/* now image hover logic and implementation */}
+
+        <div className="hero-image-wrapper mt-5 md:mt-0">
+          {/* ab useRef ki madad se hm issh div k html ka access mil jata hai and isko manipulate kr skte hai */}
+          <div className="hero-image" ref={imageRef}>
             <Image
               src={"/banner.jpeg"}
               width={1280}

@@ -1,9 +1,16 @@
 import React from "react";
 import OnBoardingForm from "./_components/onboarding-form";
 import { industries } from "@/data/industries";
+import { getUserOnboardingStatus } from "@/actions/user";
+import { redirect } from "next/navigation";
 
-const OnBoarding = () => {
+const OnBoarding = async () => {
   // Check if user is already onboarded
+  const { isOnboarded } = await getUserOnboardingStatus();
+
+  if (isOnboarded) {
+    redirect("/dashboard");
+  }
 
   return (
     // so now why sep component as we can not use client in this as this is server

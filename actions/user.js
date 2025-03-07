@@ -26,21 +26,21 @@ export async function updateUser(data) {
     const result = await db.$transaction(
       async (tx) => {
         //find if the industry exists
-        let industryInsights = await tx.industryInsights.findUnique({
+        let industryInsights = await tx.industryInsight.findUnique({
           where: {
             industry: data.industry,
           },
         });
         //if industry doesn't exist, create it with default values - will replace it with ai later
         if (!industryInsights) {
-          industryInsights = await tx.industryInsights.create({
+          industryInsights = await tx.industryInsight.create({
             data: {
               industry: data.industry,
               salaryRanges: [], //default empty array
               growthRate: 0, //Default value
-              demandLevel: "Medium", //Default value
+              demandLevel: "MEDIUM", //Default value
               topSkills: [], // Default empty array
-              marketOutlook: "Neutral", //Default value
+              marketOutlook: "NEUTRAL", //Default value
               keyTrends: [], //default empty array
               recommededSkills: [], //Default empty array
               nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), //1 week from now
@@ -68,15 +68,15 @@ export async function updateUser(data) {
       }
     );
 
-    return result.user;
+    return { success: true, ...result };
   } catch (error) {
     console.log("Error updating user and industry :", error.message);
-    throw new Error("Failed to update profile");
+    throw new Error("Failed to update profile" + error.message);
   }
 }
 
 //fetching user onBoarding Status
-export async function getUserOnboardingStatus(){
+export async function getUserOnboardingStatus() {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorised");
 
@@ -90,16 +90,16 @@ export async function getUserOnboardingStatus(){
 
   try {
     const user = await db.user.findUnique({
-      where:{
+      where: {
         clerkUserId: userId,
       },
-      select:{
+      select: {
         industry: true,
-      }
+      },
     });
 
     return {
-      isOnboarded : !!user?.industry,
+      isOnboarded: !!user?.industry,
     };
   } catch (error) {
     console.log("Error checking onboarded status : ", error.message);

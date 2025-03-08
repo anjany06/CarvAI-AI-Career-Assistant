@@ -47,13 +47,15 @@ export async function getIndustryInsights() {
     where: {
       clerkUserId: userId,
     },
+    include: {
+      industryInsight: true,
+    },
   });
 
   if (!user) throw new Error("User not found");
 
   if (!user.industryInsight) {
     const insights = await generateAIInsights(user.industry);
-    console.log(insights);
     const industryInsight = await db.industryInsight.create({
       data: {
         industry: user.industry,

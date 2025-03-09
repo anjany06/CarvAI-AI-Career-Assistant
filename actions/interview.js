@@ -113,11 +113,13 @@ export async function saveQuizResult(questions, answers, score) {
   try {
     // saving this into the db
     const assessment = await db.assessment.create({
-      userId: user.id,
-      quizScore: score,
-      questions: questionResults,
-      category: "Technical",
-      improvementTip: improvementTip,
+      data: {
+        userId: user.id,
+        quizScore: score,
+        questions: questionResults,
+        category: "Technical",
+        improvementTip: improvementTip,
+      },
     });
     return assessment;
   } catch (error) {

@@ -22,8 +22,11 @@ import EntryForm from "./entry-form";
 import { entriesToMarkdown } from "@/app/lib/helper";
 import MDEditor from "@uiw/react-md-editor";
 import { useUser } from "@clerk/nextjs";
+import jsPDF from "jspdf";
+
 import dynamic from "next/dynamic";
-const html2pdf = dynamic(() => import("html2pdf.js/dist/html2pdf.min.js"), {
+
+const html2pdf = dynamic(async () => (await import("html2pdf.js")).default, {
   ssr: false,
 });
 
@@ -111,6 +114,10 @@ const ResumeBuilder = ({ initialContent }) => {
   const generatePdf = async () => {
     setIsGenerating(true);
     try {
+      // Ensure we get the correct export from the module.
+      const html2pdfModule = await import("html2pdf.js");
+      const html2pdf = html2pdfModule.default || html2pdfModule;
+
       const element = document.getElementById("resume-pdf");
       const opt = {
         margin: [15, 15],
@@ -120,11 +127,14 @@ const ResumeBuilder = ({ initialContent }) => {
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       };
 
+      // Direct API call – this should trigger the download automatically.
       await html2pdf(element, opt);
+      console.log("PDF generated successfully");
     } catch (error) {
-      console.error("PDF generation error :", error);
+      console.log("PDF generation error:", error);
     } finally {
       setIsGenerating(false);
+      console.log("Execution finished");
     }
   };
 
@@ -370,7 +380,7 @@ const ResumeBuilder = ({ initialContent }) => {
               <MDEditor.Markdown
                 source={previewContent}
                 style={{
-                  background: "White",
+                  background: "white",
                   color: "black",
                 }}
               />

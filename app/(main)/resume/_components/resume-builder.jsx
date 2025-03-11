@@ -25,6 +25,7 @@ import { useUser } from "@clerk/nextjs";
 import jsPDF from "jspdf";
 
 import dynamic from "next/dynamic";
+import { toast } from "sonner";
 
 const html2pdf = dynamic(async () => (await import("html2pdf.js")).default, {
   ssr: false,
@@ -109,7 +110,23 @@ const ResumeBuilder = ({ initialContent }) => {
 
     //filter to enable if not present dont show them filter them out
   };
-  const onSubmit = async (data) => {};
+
+  useEffect(() => {
+    if (saveResult && isSaving) {
+      toast.success("Resume saved successfully");
+    }
+    if (saveError) {
+      toast.error(saveError.message || "Error saving resume");
+    }
+  }, [saveResult, saveError, isSaving]);
+
+  const onSubmit = async () => {
+    try {
+      await saveResumeFn(previewContent);
+    } catch (error) {
+      console.log("Error in saving : ", error);
+    }
+  };
 
   const generatePdf = async () => {
     setIsGenerating(true);
@@ -145,9 +162,18 @@ const ResumeBuilder = ({ initialContent }) => {
           Resume Builder
         </h1>
         <div className="space-x-2">
-          <Button variant="destructive">
-            <Save className="h-4 w-4" />
-            Save
+          <Button variant="destructive" onClick={onSubmit} disabled={isSaving}>
+            {isSaving ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Saving...
+              </>
+            ) : (
+              <>
+                <Save className="h-4 w-4" />
+                Save
+              </>
+            )}
           </Button>
           <Button onClick={generatePdf} disabled={isGenerating}>
             {isGenerating ? (
@@ -169,7 +195,7 @@ const ResumeBuilder = ({ initialContent }) => {
           <TabsTrigger value="preview">Markdown</TabsTrigger>
         </TabsList>
         <TabsContent value="edit">
-          <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
+          <form className="space-y-8">
             <div className="space-y-4">
               <h3 className="text-lg font-medium">Contact Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border rounded-lg bg-muted/50">

@@ -81,7 +81,7 @@ export async function improveWithAI({ current, type }) {
   if (!user) throw new Error("User not found");
 
   const prompt = `
-    As an expert resume writer, improve the following ${type} description for a ${user.industry} professional.
+    As an expert resume writer, improve the following ${type} description for a professional ${user.industry} .
     Make it more impactful, quantifiable, and aligned with industry standards.
     Current content: "${current}"
 

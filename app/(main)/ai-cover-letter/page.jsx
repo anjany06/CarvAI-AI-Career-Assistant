@@ -13,8 +13,10 @@ import React from "react";
 const CoverLetter = () => {
   return (
     <div>
-      <div>
-        <h1>My Cover Letters</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 mb-5">
+        <h className="text-4xl md:text-6xl font-bold gradient-title">
+          My Cover Letters
+        </h>
         <Link href="/ai-cover-letter/new">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
@@ -22,15 +24,7 @@ const CoverLetter = () => {
           </Button>
         </Link>
       </div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-      </Card>
+      {/* <CoverLetterList coverLetters={coverLetters} /> */}
     </div>
   );
 };

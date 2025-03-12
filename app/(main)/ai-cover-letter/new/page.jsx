@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import CoverLetterGenerator from "../_components/cover-letter-generator";
 
 const NewCoverLetter = () => {
   return (
@@ -23,7 +24,7 @@ const NewCoverLetter = () => {
           </p>
         </div>
       </div>
-      {/* <CoverLetterGenerator /> */}
+      <CoverLetterGenerator />
     </div>
   );
 };

@@ -1,14 +1,8 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import CoverLetterList from "./_components/cover-letter-list";
 
 const CoverLetter = () => {
   return (
@@ -24,7 +18,7 @@ const CoverLetter = () => {
           </Button>
         </Link>
       </div>
-      {/* <CoverLetterList coverLetters={coverLetters} /> */}
+      <CoverLetterList coverLetters={coverLetters} />
     </div>
   );
 };

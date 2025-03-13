@@ -16,9 +16,9 @@ const NewCoverLetter = () => {
         </Link>
 
         <div className="p-4">
-          <h1 className="text-4xl md:text-6xl font-bold gradient-title">
+          <h2 className="text-4xl md:text-6xl font-bold gradient-title">
             Create Cover Letter
-          </h1>
+          </h2>
           <p className="text-muted-foreground">
             Generate a tailored letter for your job application
           </p>

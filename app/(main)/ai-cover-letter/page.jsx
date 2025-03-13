@@ -18,7 +18,7 @@ const CoverLetter = () => {
           </Button>
         </Link>
       </div>
-      <CoverLetterList coverLetters={coverLetters} />
+      {/* <CoverLetterList coverLetters={coverLetters} /> */}
     </div>
   );
 };

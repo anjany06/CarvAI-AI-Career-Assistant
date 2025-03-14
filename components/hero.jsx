@@ -50,7 +50,7 @@ const HeroSection = () => {
         </div>
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
-            <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-6 py-2 rounded-full text-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 mx-auto ">
+            <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-6 py-2 rounded-full text-lg transition-all duration-1200 transform hover:scale-105 flex items-center gap-2 mx-auto animate-bounce">
               Get Started <ArrowRight />
             </button>
           </Link>

@@ -1,3 +1,4 @@
+import { GithubIcon, LinkedinIcon, TwitchIcon, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -24,17 +25,49 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Home</li>
-            <li>Build Resume</li>
-            <li>Give Assessment</li>
-            <li>Create Cover Letter</li>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link href="/resume">Build resume</Link>
+            </li>
+            <li>
+              <Link href="/interview">Give Assessments</Link>
+            </li>
+            <li>
+              <Link href="/ai-cover-letter">Create Cover Letter</Link>
+            </li>
           </ul>
         </div>
         <div>
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+91 9821169378</li>
-            <li>anjany.pandey06@gmail.com</li>
+            <li>
+              <a href="mailto:anjany.pandey06@gmail.com">
+                anjany.pandey06@gmail.com
+              </a>
+            </li>
+            <div className="flex flex-row gap-4 mt-2">
+              <li>
+                <Link href="https://github.com/anjany06">
+                  <GithubIcon />
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.linkedin.com/in/anjany-pandey-927169294/">
+                  <LinkedinIcon />
+                </Link>
+              </li>
+              <li>
+                <Link href="https://x.com/anjany06">
+                  <Twitter />
+                </Link>
+              </li>
+            </div>
           </ul>
         </div>
       </div>

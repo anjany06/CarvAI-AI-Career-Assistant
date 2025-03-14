@@ -1,3 +1,4 @@
+"use client";
 import HeroSection from "@/components/hero";
 import {
   Accordion,
@@ -14,8 +15,44 @@ import { testimonial } from "@/data/testimonial";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+  const statistics = [
+    {
+      label: "Industries Covered",
+      value: 50,
+    },
+    {
+      label: "Interview Questions",
+      value: 1000,
+    },
+    {
+      label: "(Per) Success Rate",
+      value: 95,
+    },
+    {
+      label: "(Hours) AI Support",
+      value: 20,
+    },
+  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const top = aboutSection.getBoundingClientRect().top;
+        const isVisible = top < window.innerHeight - 100;
+        setIsVisible(isVisible);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    //cleanup function to remove the event Listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div>
       <div className="lg:min-h-screen bg-gradient-to-br from-black via-[#001f3f] to-[#000000]">
@@ -52,25 +89,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className=" w-full py-12 md:py-24 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
+      <section
+        id="about"
+        className=" w-full py-12 md:py-24 bg-gradient-to-r from-purple-900/20 to-blue-900/20"
+      >
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-2">
-              <h3 className="text-4xl font-bold">50+</h3>
-              <p className="text-muted-foreground">Industries Covered</p>
-            </div>
-            <div className="flex flex-col items-center justify-center space-y-2">
-              <h3 className="text-4xl font-bold">1000+</h3>
-              <p className="text-muted-foreground">Interview Questions</p>
-            </div>
-            <div className="flex flex-col items-center justify-center space-y-2">
-              <h3 className="text-4xl font-bold">95%</h3>
-              <p className="text-muted-foreground">Success Rate</p>
-            </div>
-            <div className="flex flex-col items-center justify-center space-y-2">
-              <h3 className="text-4xl font-bold">24/7</h3>
-              <p className="text-muted-foreground">AI Support</p>
-            </div>
+            {statistics.map((statistic, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center space-y-2"
+              >
+                <div className="flex items-center gap-1">
+                  <CountUp
+                    start={isVisible ? 0 : null}
+                    end={statistic.value}
+                    duration={5}
+                    delay={0}
+                  >
+                    {({ countUpRef }) => (
+                      <h3 ref={countUpRef} className="text-5xl font-sans"></h3>
+                    )}
+                  </CountUp>
+                  <h3 className="text-4xl font-bold">+</h3>
+                </div>
+                <p className="text-muted-foreground">{statistic.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

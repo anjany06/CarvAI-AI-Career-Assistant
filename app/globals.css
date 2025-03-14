@@ -40,7 +40,7 @@
   --radius: 0.5rem;
 }
 
-.dark {
+/* .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -73,6 +73,41 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+} */
+
+.dark {
+  --background: rgb(0, 0, 0);
+  --foreground: rgb(255, 255, 255);
+  --card: rgb(0, 0, 0);
+  --card-foreground: rgb(255, 255, 255);
+  --popover: rgb(0, 0, 0);
+  --popover-foreground: rgb(255, 255, 255);
+  --primary: rgb(255, 255, 255);
+  --primary-foreground: rgb(0, 0, 0);
+  --secondary: rgb(40, 40, 40);
+  --secondary-foreground: rgb(255, 255, 255);
+  --muted: rgb(40, 40, 40);
+  --muted-foreground: rgb(150, 150, 150);
+  --accent: rgb(40, 40, 40);
+  --accent-foreground: rgb(255, 255, 255);
+  --destructive: rgb(150, 0, 0);
+  --destructive-foreground: rgb(255, 255, 255);
+  --border: rgb(40, 40, 40);
+  --input: rgb(40, 40, 40);
+  --ring: rgb(60, 60, 60);
+  --chart-1: rgb(100, 150, 200);
+  --chart-2: rgb(200, 150, 100);
+  --chart-3: rgb(150, 200, 100);
+  --chart-4: rgb(100, 200, 150);
+  --chart-5: rgb(200, 100, 150);
+  --sidebar: rgb(0, 0, 0);
+  --sidebar-foreground: rgb(255, 255, 255);
+  --sidebar-primary: rgb(100, 150, 200);
+  --sidebar-primary-foreground: rgb(255, 255, 255);
+  --sidebar-accent: rgb(40, 40, 40);
+  --sidebar-accent-foreground: rgb(255, 255, 255);
+  --sidebar-border: rgb(40, 40, 40);
+  --sidebar-ring: rgb(60, 60, 60);
 }
 
 @theme inline {
@@ -194,7 +229,7 @@
     @apply bg-background text-foreground;
   }
 }
-.grid-background {
+/* .grid-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -219,7 +254,7 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.9));
-}
+} */
 
 @layer utilities {
   .gradient {
@@ -229,9 +264,9 @@
     @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
   }
 }
-
+/* 
 .hero-image-wrapper {
-  perspective: 1000px;
+  perspective: 300px;
 }
 .hero-image {
   transform: rotateX(15deg) scale(1);
@@ -240,4 +275,4 @@
 }
 .hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
-}
+} */

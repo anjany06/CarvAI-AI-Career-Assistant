@@ -15,6 +15,7 @@ import {
   Loader2,
   Monitor,
   Save,
+  Sparkles,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -78,6 +79,8 @@ const ResumeBuilder = ({ initialContent }) => {
       setPreviewContent(newContent ? newContent : initialContent);
     }
   }, [formValues, activeTab]);
+
+  const handleImproveSummary = async () => {};
 
   const getContactMarkdown = () => {
     const { contactInfo } = formValues;
@@ -264,7 +267,7 @@ const ResumeBuilder = ({ initialContent }) => {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 border-2 rounded-lg p-4">
               <h3 className="text-lg font-medium">Professional Summary</h3>
               <Controller
                 name="summary"
@@ -281,6 +284,25 @@ const ResumeBuilder = ({ initialContent }) => {
               {errors.summary && (
                 <p className="text-sm text-red-500">{errors.summary.message}</p>
               )}
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={handleImproveSummary}
+                // disabled={isImproving || !watch("description")}
+              >
+                {/* {isImproving ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Improving...
+                  </>
+                ) : ( */}
+                <>
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  Improve with AI
+                </>
+                {/* )} */}
+              </Button>
             </div>
 
             <div className="space-y-4">

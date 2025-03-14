@@ -18,12 +18,13 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <div className="grid-background"></div>
-      <HeroSection />
+      <div className="lg:min-h-screen bg-gradient-to-br from-black via-[#001f3f] to-[#000000]">
+        <HeroSection />
+      </div>
 
       {/* features section */}
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-gray-800/50 to-gray-900/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
             Powerful Features for Your Career Growth
@@ -33,7 +34,7 @@ export default function Home() {
               return (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary transition-colors duration-300"
+                  className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 border-gray-700 backdrop-blur-xl border-2 hover:border-primary transition-colors duration-300"
                 >
                   <CardContent className="pt-6 text-center flex flex-col items-center">
                     <div className="flex flex-col items-center justify-center">
@@ -51,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className=" w-full py-12 md:py-24 bg-muted/50">
+      <section className=" w-full py-12 md:py-24 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-2">
@@ -75,7 +76,7 @@ export default function Home() {
       </section>
 
       {/* How it works section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-gray-800/50 to-gray-900/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl font-bold mb-4">How It Works</h2>
@@ -90,7 +91,7 @@ export default function Home() {
                   key={index}
                   className="flex flex-col items-center text-center space-y-4"
                 >
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <h3 className="font-semibold text-xl">{item.title}</h3>
@@ -103,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* testinomials section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
             What Our Users Say
@@ -134,7 +135,7 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
-                      <blackquote>
+                      <h5>
                         <p className="text-muted-foreground italic relative">
                           <span className="text-3xl text-primary absolute -top-4 -left-2">
                             &quot;
@@ -144,7 +145,7 @@ export default function Home() {
                             &quot;
                           </span>
                         </p>
-                      </blackquote>
+                      </h5>
                     </div>
                   </CardContent>
                 </Card>
@@ -182,7 +183,7 @@ export default function Home() {
 
       {/* Action section */}
       <section className="w-full">
-        <div className="mx-auto py-24 gradient rounded-lg">
+        <div className="mx-auto py-24 bg-gradient-to-b from-gray-600 via-gray-200 to-blue-900 rounded-lg">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-primary-foreground tracking-tighter sm:text-4xl md:text-5xl">
               Ready to Accelerate Your Career?

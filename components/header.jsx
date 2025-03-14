@@ -7,6 +7,8 @@ import {
   GraduationCap,
   ChevronDown,
   StarsIcon,
+  Briefcase,
+  ChartSpline,
 } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
@@ -21,15 +23,15 @@ import { checkUser } from "@/lib/checkUser";
 
 export default async function Header() {
   await checkUser();
-  
+
   return (
     <header className="fixed top-0 min-w-screen border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <nav className="mx-auto px-3 md:px-12 h-16 flex items-center justify-between">
         <Link href="/">
           <Image
-            src={"/logo.png"}
-            alt="Sensai Logo"
-            width={200}
+            src={"/carvAi.png"}
+            alt="Logo"
+            width={250}
             height={60}
             className="h-12 py-1 w-auto object-contain"
           />
@@ -43,8 +45,8 @@ export default async function Header() {
                 variant="outline"
                 className="hidden md:inline-flex items-center gap-2"
               >
-                <LayoutDashboard className="h-4 w-4" />
-                Industry Insights
+                <Briefcase className="h-4 w-4" />
+                Market Trends
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
                 <LayoutDashboard className="h-4 w-4" />
@@ -55,8 +57,8 @@ export default async function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
-                  <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block">Growth Tools</span>
+                  <ChartSpline className="h-4 w-4" />
+                  <span className="hidden md:block">Success Tools</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>

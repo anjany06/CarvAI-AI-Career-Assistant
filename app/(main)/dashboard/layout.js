@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { HashLoader } from "react-spinners";
+import { BarLoader, HashLoader } from "react-spinners";
 
 const Layout = ({ children }) => {
   return (
@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <h1 className="text-6xl font-bold gradient-title">Industry Insights</h1>
       </div>
       <Suspense
-        fallback={<HashLoader className="mt-4" width={"100%"} color="gray" />}
+        fallback={<BarLoader className="mt-4" width={"100%"} color="gray" />}
       >
         {children}
       </Suspense>

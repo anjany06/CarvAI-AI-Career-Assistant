@@ -17,7 +17,7 @@ const Footer = () => {
               className="h-12 py-1 w-auto object-contain"
             />
           </Link>
-          <p className="w-full md:2/3 text-gray-600">
+          <p className="w-full md:2/3 text-gray-600 mt-2">
             Boost your career with tailored advice, interview coaching, and
             AI-driven tools for job success.
           </p>

@@ -1,4 +1,5 @@
 "use client";
+import Faqs from "@/components/comp-339";
 import HeroSection from "@/components/hero";
 import {
   Accordion,
@@ -64,7 +65,7 @@ export default function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-gray-800/50 to-gray-900/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
-            Powerful Features for Your Career Growth
+            Our Key Tools for Career Advancement
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => {
@@ -201,41 +202,18 @@ export default function Home() {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl font-bold mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-muted-foreground">
-              Find answers to common questions about our platform
-            </p>
-          </div>
-          <div className="max-w-6xl mx-auto">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((item, index) => {
-                return (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>{item.question}</AccordionTrigger>
-                    <AccordionContent>{item.answer}</AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <Faqs />
 
       {/* Action section */}
       <section className="w-full">
         <div className="mx-auto py-24 bg-gradient-to-b from-gray-600 via-gray-200 to-blue-900 rounded-lg">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-primary-foreground tracking-tighter sm:text-4xl md:text-5xl">
-              Ready to Accelerate Your Career?
+              Are You Ready to Boost Your Career?
             </h2>
             <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
-              Join thousands of professionals who are advancing their careers
-              with AI-powered guidance.
+              Be part of a network of thousands of professionals who are
+              transforming their careers with AI-powered support.
             </p>
 
             <Link href="/dashboard" passHref>
@@ -244,7 +222,8 @@ export default function Home() {
                 variant="secondary"
                 className="h-11 mt-5 animate-bounce"
               >
-                Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+                Take the First Step Today
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>

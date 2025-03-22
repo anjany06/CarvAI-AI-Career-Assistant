@@ -14,6 +14,8 @@ import {
   PlusIcon,
   ZapIcon,
 } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const items = [
   {

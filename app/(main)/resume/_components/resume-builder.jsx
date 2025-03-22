@@ -1,6 +1,6 @@
 "use client";
 
-import { saveResume } from "@/actions/resume";
+import { improveSummary, saveResume } from "@/actions/resume";
 import { resumeSchema } from "@/app/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -46,6 +46,7 @@ const ResumeBuilder = ({ initialContent }) => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(resumeSchema),
@@ -66,6 +67,13 @@ const ResumeBuilder = ({ initialContent }) => {
     error: saveError,
   } = useFetch(saveResume);
 
+  const {
+    loading: isImproving,
+    fn: improveWithAIFn,
+    data: improvedContent,
+    error: improveError,
+  } = useFetch(improveSummary);
+
   //To watch every field
   const formValues = watch();
 
@@ -80,7 +88,27 @@ const ResumeBuilder = ({ initialContent }) => {
     }
   }, [formValues, activeTab]);
 
-  const handleImproveSummary = async () => {};
+  useEffect(() => {
+    if (improvedContent && !isImproving) {
+      setValue("summary", improvedContent);
+      toast.success("summary improved successfully");
+    }
+
+    if (improveError) {
+      toast.error(improveError.message || "Failed to improve summary");
+    }
+  }, [improvedContent, improveError, isImproving]);
+
+  const handleImproveSummary = async () => {
+    const summary = watch("summary");
+    if (!summary) {
+      toast.error("Please enter a summary first.");
+      return;
+    }
+    await improveWithAIFn({
+      current: summary,
+    });
+  };
 
   const getContactMarkdown = () => {
     const { contactInfo } = formValues;
@@ -277,6 +305,7 @@ const ResumeBuilder = ({ initialContent }) => {
                     {...field}
                     className="h-32"
                     placeholder="Write a compelling professional summary..."
+                    {...register("summary")}
                     error={errors.summary}
                   />
                 )}
@@ -289,19 +318,19 @@ const ResumeBuilder = ({ initialContent }) => {
                 variant="ghost"
                 size="sm"
                 onClick={handleImproveSummary}
-                // disabled={isImproving || !watch("description")}
+                disabled={isImproving || !watch("summary")}
               >
-                {/* {isImproving ? (
+                {isImproving ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                     Improving...
                   </>
-                ) : ( */}
-                <>
-                  <Sparkles className="h-4 w-4 mr-2" />
-                  Improve with AI
-                </>
-                {/* )} */}
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Improve with AI
+                  </>
+                )}
               </Button>
             </div>
 

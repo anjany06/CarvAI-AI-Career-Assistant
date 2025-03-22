@@ -106,3 +106,45 @@ export async function improveWithAI({ current, type }) {
     throw new Error("Failed to improve content");
   }
 }
+export async function improveSummary({ current }) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorised");
+
+  const user = await db.user.findUnique({
+    where: {
+      clerkUserId: userId,
+    },
+    include: {
+      industryInsight: true,
+    },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  const prompt = `
+  As an expert resume writer, enhance the following professional summary for a professional ${user.industry} to make it more impactful, quantifiable, and aligned with industry standards.
+  Current Content "${current}"
+  
+  Requirements
+  1.Utilize action verbs to describe achievements
+  2.Incorporate metrics and results to demonstrate impact
+  3.Highlight relevant technical skills and certifications
+  4.Maintain a concise yet detailed tone
+  5.Emphasize achievements and accomplishments over job responsibilities
+  6.Incorporate industry-specific keywords and phrases
+  7.Limit response to 70-75 words
+
+  Format the response as a single paragraph without any additional text or explanations.
+  Deliverable Format the response as a single paragraph, optimized for a professional resume.
+  `;
+  try {
+    const result = await model.generateContent(prompt);
+    const response = result.response;
+
+    const improvedContent = response.text().trim();
+    return improvedContent;
+  } catch (error) {
+    console.error("Error improving content : ", error);
+    throw new Error("Failed to improve content");
+  }
+}

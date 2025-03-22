@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* Action section */}
       <section className="w-full">
-        <div className="mx-auto py-24 bg-gradient-to-b from-gray-600 via-gray-200 to-blue-900 rounded-lg">
+        <div className="mx-auto py-24 bg-gradient-to-r from-indigo-900 via-white to-cyan-400 rounded-lg">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-primary-foreground tracking-tighter sm:text-4xl md:text-5xl">
               Are You Ready to Boost Your Career?

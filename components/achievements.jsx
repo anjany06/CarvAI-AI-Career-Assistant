@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Users, FileCheck, Briefcase, Award } from "lucide-react";
+import { Users, FileCheck, Briefcase, Award, Compass } from "lucide-react";
 
 const StatCard = ({ icon, value, label, color, suffix = "", delay }) => {
   const counterRef = useRef(null);
@@ -198,38 +198,38 @@ const Achievements = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <StatCard
             icon={<Users className="w-6 h-6" />}
-            value={25000}
-            label="Users Guided"
+            value={50}
+            label="Industries Covered"
             color="neon-blue"
             suffix="+"
-            delay={0}
+            delay={100}
           />
 
           <StatCard
             icon={<FileCheck className="w-6 h-6" />}
-            value={15000}
-            label="Resumes Built"
+            value={1000}
+            label="Interview Questions"
             color="neon-purple"
             suffix="+"
-            delay={200}
-          />
-
-          <StatCard
-            icon={<Briefcase className="w-6 h-6" />}
-            value={7500}
-            label="Jobs Secured"
-            color="neon-pink"
-            suffix="+"
-            delay={400}
+            delay={600}
           />
 
           <StatCard
             icon={<Award className="w-6 h-6" />}
-            value={98}
-            label="Satisfaction Rate"
-            color="neon-blue"
+            value={95}
+            label="Success Rate"
+            color="neon-pink"
             suffix="%"
-            delay={600}
+            delay={200}
+          />
+
+          <StatCard
+            icon={<Compass className="w-6 h-6" />}
+            value={24}
+            label="AI Support"
+            color="neon-blue"
+            suffix="/7"
+            delay={500}
           />
         </div>
 
@@ -243,7 +243,7 @@ const Achievements = () => {
             </h3>
             <p className="text-white/70 mb-8">
               Our platform analyzes industry trends and user data to provide the
-              most effective career guidance, resulting in measurable career
+              most effective career insights, resulting in measurable career
               growth for our users.
             </p>
 
@@ -270,7 +270,7 @@ const Achievements = () => {
 
               <div>
                 <div className="flex justify-between mb-2">
-                  <span className="text-white">Job Satisfaction</span>
+                  <span className="text-white">Insights Accuracy</span>
                   <span className="text-purple-500">92%</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -319,7 +319,7 @@ const Achievements = () => {
                 <div className="flex flex-col items-center">
                   <span className="text-2xl font-bold text-white">78%</span>
                   <span className="text-xs text-white/60 mt-1">
-                    Leadership Roles
+                    Accurate Questions
                   </span>
                 </div>
               </CircleProgress>

@@ -55,6 +55,32 @@ const HeroSection = () => {
           </Link>
         </div>
 
+        {/* <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center animate-fadeIn mx-12 md:mx-24">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg py-4 px-2">
+            <p className="text-sm text-white/60 mb-1">Trusted by</p>
+            <p className="text-2xl font-bold text-white">500+</p>
+            <p className="text-sm text-white/60">Companies</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg py-4 px-2">
+            <p className="text-sm text-white/60 mb-1">Job Placements</p>
+            <p className="text-2xl font-bold text-white">10,000+</p>
+            <p className="text-sm text-white/60">Successful Matches</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg py-4 px-2">
+            <p className="text-sm text-white/60 mb-1">Career Paths</p>
+            <p className="text-2xl font-bold text-white">200+</p>
+            <p className="text-sm text-white/60">Unique Options</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg py-4 px-2">
+            <p className="text-sm text-white/60 mb-1">Satisfaction</p>
+            <p className="text-2xl font-bold text-white">98%</p>
+            <p className="text-sm text-white/60">Positive Feedback</p>
+          </div>
+        </div> */}
+
         {/* now image hover logic and implementation */}
         {/* 
         <div className="hero-image-wrapper mt-5 md:mt-0 px-3"> */}

@@ -1,5 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { Compass, FileText, Search, Sparkles } from "lucide-react";
+import {
+  Brain,
+  Briefcase,
+  ChartSpline,
+  Compass,
+  FileText,
+  Search,
+  Sparkles,
+} from "lucide-react";
 
 const FeatureCard = ({ icon, title, description, color, delay }) => {
   const cardRef = useRef(null);
@@ -97,9 +105,9 @@ const Features = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <FeatureCard
-            icon={<Compass className="w-6 h-6" />}
-            title="Career Guidance"
-            description="AI-powered career path analysis based on your skills, experience, and goals."
+            icon={<Brain className="w-6 h-6" />}
+            title="AI-Driven Career Advice"
+            description="Get personalized career advice and insights powered by advanced AI technology."
             color="blue"
             delay={0}
           />
@@ -107,23 +115,23 @@ const Features = () => {
           <FeatureCard
             icon={<FileText className="w-6 h-6" />}
             title="Resume Builder"
-            description="Create professional, ATS-optimized resumes with our intuitive drag-and-drop editor."
+            description="Create professional resumes with our AI-powered builder. Stand out from the crowd with modern templates.."
             color="purple"
             delay={200}
           />
 
           <FeatureCard
-            icon={<Search className="w-6 h-6" />}
-            title="Job Matching"
-            description="Find your perfect role with our advanced job matching algorithm and insights."
+            icon={<Briefcase className="w-6 h-6" />}
+            title="Online Assessment"
+            description="Practice with role-specific questions and get instant feedback to improve your performance."
             color="pink"
             delay={400}
           />
 
           <FeatureCard
-            icon={<Sparkles className="w-6 h-6" />}
-            title="Skill Recommendations"
-            description="Identify and develop the skills most in-demand for your desired career path."
+            icon={<ChartSpline className="w-6 h-6" />}
+            title="Market Trends"
+            description="Stay ahead with real-time industry trends, salary data, and market analysis."
             color="blue"
             delay={600}
           />

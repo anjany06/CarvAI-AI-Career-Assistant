@@ -4,29 +4,8 @@ import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { ArrowBigLeft, ArrowRight, ChartSpline } from "lucide-react";
-// import { Button } from "./ui/moving-border";
 
 const HeroSection = () => {
-  const imageRef = useRef(null);
-
-  // useEffect(() => {
-  //   const imageElement = imageRef.current;
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     // scrollThreshold means jaise hi 100 cross ho hme tild kr deni h image
-  //     const scrollThreshold = 100;
-
-  //     if (scrollPosition > scrollThreshold) {
-  //       imageElement.classList.add("scrolled");
-  //     } else {
-  //       imageElement.classList.remove("scrolled");
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">

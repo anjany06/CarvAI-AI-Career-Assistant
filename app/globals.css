@@ -276,3 +276,9 @@
 .hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
 } */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}

@@ -92,6 +92,7 @@ export async function improveWithAI({ current, type }) {
     4. Keep it concise but detailed
     5. Focus on achievements over responsibilities
     6. Use industry-specific keywords
+    7.Limit response to 50-55 words
     
     Format the response as a single paragraph without any additional text or explanations.
   `;
@@ -132,7 +133,7 @@ export async function improveSummary({ current }) {
   4.Maintain a concise yet detailed tone
   5.Emphasize achievements and accomplishments over job responsibilities
   6.Incorporate industry-specific keywords and phrases
-  7.Limit response to 70-75 words
+  7.Limit response to 60-65 words
 
   Format the response as a single paragraph without any additional text or explanations.
   Deliverable Format the response as a single paragraph, optimized for a professional resume.

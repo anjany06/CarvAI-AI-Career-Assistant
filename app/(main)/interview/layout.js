@@ -12,7 +12,7 @@ const Layout = async ({ children }) => {
     redirect("/onboarding");
   }
   return (
-    <div className="px-5">
+    <div className="px-3 md:px-5">
       <Suspense
         fallback={
           <div className="loader-container">

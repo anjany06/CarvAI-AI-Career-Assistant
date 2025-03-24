@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Toaster } from "sonner";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,10 @@ export default function RootLayout({ children }) {
             {/* header */}
             <Header />
 
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen">
+              {children}
+              <Analytics />
+            </main>
             <Toaster richColors />
 
             {/* footer */}

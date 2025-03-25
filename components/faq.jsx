@@ -14,8 +14,6 @@ import {
   PlusIcon,
   ZapIcon,
 } from "lucide-react";
-import Link from "next/link";
-import { Button } from "./ui/button";
 
 const items = [
   {
@@ -75,12 +73,7 @@ export default function Faqs() {
           </p>
         </div>
         <div className="max-w-6xl mx-auto">
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full"
-            defaultValue="3"
-          >
+          <Accordion type="single" collapsible className="w-full">
             {items.map((item) => (
               <AccordionItem value={item.id} key={item.id} className="py-2">
                 <AccordionPrimitive.Header className="flex">

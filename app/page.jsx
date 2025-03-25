@@ -1,6 +1,6 @@
 "use client";
 import Achievements from "@/components/achievements";
-import Faqs from "@/components/comp-339";
+import Faqs from "@/components/faq";
 import Features from "@/components/features";
 import HeroSection from "@/components/hero";
 import { Button } from "@/components/ui/button";

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Users, FileCheck, Briefcase, Award, Compass } from "lucide-react";
+import { Users, FileCheck, Award, Compass } from "lucide-react";
 
 const StatCard = ({ icon, value, label, color, suffix = "", delay }) => {
   const counterRef = useRef(null);
@@ -329,15 +329,9 @@ const Achievements = () => {
       </div>
 
       {/* Decorative elements */}
-      <div
-        className="absolute top-1/2 -translate-y-1/2 left-0 w-72 h-72 bg-pink-500/10 rounded-full"
-        style={{ filter: "blur(80px)" }}
-      ></div>
-      <div
-        className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-400/10 rounded-full"
-        style={{ filter: "blur(80px)" }}
-      ></div>
-
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-0 w-64 h-64 bg-[rgba(179,0,255,0.1)] rounded-full blur-[80px]"></div>
+      <div className="absolute bottom-40 left-0 w-72 h-72 bg-[rgba(0,255,255,0.1)] rounded-full blur-[80px]"></div>
       <style jsx>{`
         @keyframes scale-in {
           0% {

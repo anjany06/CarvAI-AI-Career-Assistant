@@ -40,23 +40,23 @@ const FeatureCard = ({ icon, title, description, color, delay }) => {
   }, [delay]);
 
   const getBgColor = () => {
-    if (color === "blue") return "bg-[rgba(0,255,255,0.1)]";
-    if (color === "purple") return "bg-[rgba(179,0,255,0.1)]";
-    return "bg-[rgba(255,0,153,0.1)]";
+    if (color === "blue") return "bg-cyan-400/10";
+    if (color === "purple") return "bg-purple-500/10";
+    return "bg-pink-500/10";
   };
 
   const getTextColor = () => {
-    if (color === "blue") return "text-[#00ffff]";
-    if (color === "purple") return "text-[#b300ff]";
-    return "text-[#ff0099]";
+    if (color === "blue") return "text-cyan-400";
+    if (color === "purple") return "text-purple-500";
+    return "text-pink-500";
   };
 
   const getBorderColor = () => {
     if (color === "blue")
-      return "hover:border-[#00ffff] hover:shadow-[0_0_10px_rgba(0,255,255,0.7)]";
+      return "hover:border-cyan-400 hover:shadow-[0_0_10px_rgba(0,255,255,0.7)]";
     if (color === "purple")
-      return "hover:border-[#b300ff] hover:shadow-[0_0_10px_rgba(179,0,255,0.7)]";
-    return "hover:border-[#ff0099] hover:shadow-[0_0_10px_rgba(255,0,153,0.7)]";
+      return "hover:border-purple-500 hover:shadow-[0_0_10px_rgba(179,0,255,0.7)]";
+    return "hover:border-pink-500 hover:shadow-[0_0_10px_rgba(255,0,153,0.7)]";
   };
 
   return (

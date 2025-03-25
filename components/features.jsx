@@ -1,13 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Brain,
-  Briefcase,
-  ChartSpline,
-  Compass,
-  FileText,
-  Search,
-  Sparkles,
-} from "lucide-react";
+import { Brain, Briefcase, ChartSpline, FileText } from "lucide-react";
 
 const FeatureCard = ({ icon, title, description, color, delay }) => {
   const cardRef = useRef(null);
@@ -136,64 +128,6 @@ const Features = () => {
             delay={600}
           />
         </div>
-
-        {/* <div className="mt-20 bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,255,255,0.1)] via-[rgba(179,0,255,0.1)] to-[rgba(255,0,153,0.1)]"></div>
-          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-              <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-[rgba(179,0,255,0.1)] text-[#b300ff] mb-4">
-                AI-Powered Analysis
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-                Navigate Your Career with Precision
-              </h3>
-              <p className="text-[rgba(255,255,255,0.7)] mb-6">
-                Our AI engine analyzes millions of career trajectories to
-                provide you with personalized recommendations tailored to your
-                unique profile and aspirations.
-              </p>
-
-              <ul className="space-y-3">
-                {[
-                  "Personalized career roadmaps",
-                  "Industry trend analysis",
-                  "Skill gap identification",
-                  "Salary optimization strategies",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[rgba(179,0,255,0.2)] text-[#b300ff] flex items-center justify-center mt-0.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </span>
-                    <span className="text-[rgba(255,255,255,0.8)]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-video bg-gradient-to-br from-[rgba(0,255,255,0.2)] via-[rgba(179,0,255,0.2)] to-[rgba(255,0,153,0.2)] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center backdrop-blur-sm border border-[rgba(255,255,255,0.2)]">
-                    <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-5 -right-5 w-32 h-32 bg-[rgba(179,0,255,0.3)] rounded-full blur-[60px]"></div>
-            </div>
-          </div>
-        </div> */}
       </div>
 
       {/* Decorative elements */}

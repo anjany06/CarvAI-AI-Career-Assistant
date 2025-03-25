@@ -87,7 +87,7 @@ const StatCard = ({ icon, value, label, color, suffix = "", delay }) => {
   );
 };
 
-const CircleProgress = ({ value, color, size = 160, children }) => {
+const CircleProgress = ({ value, color, size, children }) => {
   const progressRef = useRef(null);
 
   useEffect(() => {
@@ -202,7 +202,7 @@ const Achievements = () => {
             label="Industries Covered"
             color="neon-blue"
             suffix="+"
-            delay={100}
+            delay={200}
           />
 
           <StatCard
@@ -211,7 +211,7 @@ const Achievements = () => {
             label="Interview Questions"
             color="neon-purple"
             suffix="+"
-            delay={600}
+            delay={100}
           />
 
           <StatCard
@@ -220,7 +220,7 @@ const Achievements = () => {
             label="Success Rate"
             color="neon-pink"
             suffix="%"
-            delay={200}
+            delay={300}
           />
 
           <StatCard
@@ -332,6 +332,8 @@ const Achievements = () => {
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-64 h-64 bg-[rgba(179,0,255,0.1)] rounded-full blur-[80px]"></div>
       <div className="absolute bottom-40 left-0 w-72 h-72 bg-[rgba(0,255,255,0.1)] rounded-full blur-[80px]"></div>
+
+      {/* Animation for statsCard appearance */}
       <style jsx>{`
         @keyframes scale-in {
           0% {

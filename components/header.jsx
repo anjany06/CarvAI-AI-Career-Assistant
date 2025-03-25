@@ -6,7 +6,6 @@ import {
   FileText,
   GraduationCap,
   ChevronDown,
-  StarsIcon,
   Briefcase,
   ChartSpline,
 } from "lucide-react";
@@ -49,7 +48,7 @@ export default async function Header() {
                 Market Trends
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
-                <LayoutDashboard className="h-4 w-4" />
+                <Briefcase className="h-4 w-4" />
               </Button>
             </Link>
 

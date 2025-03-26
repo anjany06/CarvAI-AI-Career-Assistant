@@ -91,5 +91,5 @@ carvAi is licensed under the **MIT License**.
 ## 📬 Contact
 For queries or collaborations:
 📧 **Email:** anjany.pandey06@gmail.com
-💼 **LinkedIn:** [Yhttps://www.linkedin.com/in/anjany-pandey-927169294/](https://www.linkedin.com/in/anjany-pandey-927169294/)  
+💼 **LinkedIn:** [https://www.linkedin.com/in/anjany-pandey-927169294/](https://www.linkedin.com/in/anjany-pandey-927169294/)  
 🐦 **Twitter/X:** [https://x.com/anjany06](https://x.com/anjany06)

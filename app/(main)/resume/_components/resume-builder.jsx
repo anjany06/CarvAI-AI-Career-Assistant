@@ -177,12 +177,10 @@ const ResumeBuilder = ({ initialContent }) => {
 
       // Direct API call – this should trigger the download automatically.
       await html2pdf(element, opt);
-      console.log("PDF generated successfully");
     } catch (error) {
       console.log("PDF generation error:", error);
     } finally {
       setIsGenerating(false);
-      console.log("Execution finished");
     }
   };
 

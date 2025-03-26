@@ -60,6 +60,7 @@ const QuizResult = ({ result, hideStartNew = false, onStartNew }) => {
         </div>
       </CardContent>
 
+      {/* THis is not for the dialog it is for showing results when user finishes quiz */}
       {!hideStartNew && (
         <CardFooter>
           <Button onClick={onStartNew} className="w-full">

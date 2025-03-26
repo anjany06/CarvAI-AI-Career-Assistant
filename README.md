@@ -1,28 +1,28 @@
-# carvAi – AI-Powered Career Helper
+# CarvAi – AI-Powered Career Helper
 
 ![carvAi](public/front.png)
 
 ## 🌟 Overview
-🚀 **carvAi** is an AI-powered career assistant designed to help professionals and job seekers with resume building, industry insights, online assessments, and cover letter generation. With a modern UI and AI-driven capabilities, it simplifies career development effortlessly.
+🚀 **CarvAi** is an AI-powered career helper designed to help professionals and job seekers with resume building, industry insights, online assessments, and cover letter generation. With a modern UI and AI-driven capabilities, it simplifies career development effortlessly.
 
 ## 🌟 Features
-✅ **Industry Insights** – Get real-time job market trends.
-✅ **AI Resume Builder** – Generate professional resumes tailored to job roles.
-✅ **Online Assessments** – Test your skills with AI-generated assessments.
-✅ **Cover Letter Generator** – Create personalized cover letters in seconds.
-✅ **Interactive Graphs** – Gain career insights with **Recharts-powered** visualizations.
-✅ **Modern UI** – Sleek, user-friendly, and responsive design with **ShadCN & TailwindCSS**.
-✅ **Secure Authentication** – Powered by Clerk.
-✅ **Scalable & Efficient** – Prisma, NeonDB, and Inngest ensure smooth performance.
+* ✅ **Industry Insights** – Get real-time job market trends
+* ✅ **AI Resume Builder** – Generate professional resumes tailored to job roles
+* ✅ **Online Assessments** – Test your skills with AI-generated assessments
+* ✅ **Cover Letter Generator** – Create personalized cover letters in seconds
+* ✅ **Interactive Graphs** – Gain career insights with **Recharts-powered** visualizations
+* ✅ **Modern UI** – Sleek, user-friendly, and responsive design with **ShadCN & TailwindCSS**
+* ✅ **Secure Authentication** – Powered by Clerk
+* ✅ **Scalable & Efficient** – Prisma, NeonDB, and Inngest ensure smooth performance
 
 ## 🔗 Live Demo
-Check out **carvAi** in action: **[Live Link](your-live-link-here)** 🚀
+Check out **CarvAi** in action: **[Live Link](https://carv-ai.vercel.app)** 🚀
 
 ## 💻 Tech Stack
 | Category       | Technology                     |
 |---------------|--------------------------------|
 | **Frontend**  | Next.js, TailwindCSS, ShadCN   |
-| **Backend**   | Next.js API Routes, Prisma     |
+| **Backend**   | Next.js Server Actions, Prisma     |
 | **AI**        | Gemini API                     |
 | **Database**  | NeonDB                          |
 | **Charts**    | Recharts                        |
@@ -33,7 +33,7 @@ Check out **carvAi** in action: **[Live Link](your-live-link-here)** 🚀
 ## 📥 Installation
 ### Clone the repository:
 ```bash
-git clone https://github.com/your-username/carvAi.git
+git clone https://github.com/anjany06/carvAi.git
 cd carvAi
 ```
 ### Install dependencies:
@@ -59,7 +59,7 @@ npm run dev
 1. Fork the repository.
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/carvAi.git
+   git clone https://github.com/anjany06/carvAi.git
    ```
 3. Create a new branch:
    ```bash
@@ -90,6 +90,6 @@ carvAi is licensed under the **MIT License**.
 
 ## 📬 Contact
 For queries or collaborations:
-📧 **Email:** your-email@example.com  
-💼 **LinkedIn:** [YourProfile](https://linkedin.com/in/yourprofile)  
-🐦 **Twitter/X:** [@yourhandle](https://twitter.com/yourhandle)
+📧 **Email:** anjany.pandey06@gmail.com
+💼 **LinkedIn:** [Yhttps://www.linkedin.com/in/anjany-pandey-927169294/](https://www.linkedin.com/in/anjany-pandey-927169294/)  
+🐦 **Twitter/X:** [https://x.com/anjany06](https://x.com/anjany06)

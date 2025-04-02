@@ -38,7 +38,7 @@ export async function generateLetter(data) {
   1.Maintain a professional yet enthusiastic tone to engage the employer.
   2.Highlight industry-relevant skills and experience in bold for better visibility.
   3.Show understanding of the company needs and how the candidate aligns with them.
-  4.Keep it concise (maximum 100 words) while making a strong impact.
+  4.Keep it concise (maximum 150 words) while making a strong impact.
   5.Use proper business letter formatting in Markdown, ensuring clarity and readability.
   6.Include specific achievements in past projects, showcasing the candidate capabilities.
   7.Relate the candidate background to job requirements, demonstrating relevance.

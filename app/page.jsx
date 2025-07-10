@@ -3,6 +3,7 @@ import Achievements from "@/components/achievements";
 import Faqs from "@/components/faq";
 import Features from "@/components/features";
 import HeroSection from "@/components/hero";
+import HowItWorks from "@/components/howItWorks";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { howItWorks } from "@/data/howItWorks";
@@ -20,7 +21,8 @@ export default function Home() {
       <Achievements />
 
       {/* How it works section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-[#050714]">
+      <HowItWorks />
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-[#050714]">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl font-bold mb-4">How It Works</h2>
@@ -45,7 +47,7 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* testinomials section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-purple-900/20 to-blue-900/20">

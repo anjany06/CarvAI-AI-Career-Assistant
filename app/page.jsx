@@ -49,54 +49,84 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* testinomials section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
-            What Our Users Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonial.map((testimonial, index) => {
-              return (
-                <Card key={index} className="bg-background">
-                  <CardContent className="pt-6">
-                    <div className="flex flex-col space-y-4">
-                      <div className="flex items-center space-x-4">
-                        <div className="relative h-12 w-12 flex-shrink-0">
-                          <Image
-                            width={40}
-                            height={40}
-                            src={testimonial.image}
-                            alt={testimonial.author}
-                            className="rounded-full object-cover border-2 border-primary/20"
-                          />
-                        </div>
-                        <div>
-                          <p className="font-semibold">{testimonial.author}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {testimonial.role}
-                          </p>
-                          <p className="text-sm text-primary">
-                            {testimonial.company}
-                          </p>
-                        </div>
-                      </div>
-                      <h5>
-                        <p className="text-muted-foreground italic relative">
-                          <span className="text-3xl text-primary absolute -top-4 -left-2">
-                            &quot;
-                          </span>
-                          {testimonial.quote}
-                          <span className="text-3xl text-primary absolute -bottom-4">
-                            &quot;
-                          </span>
-                        </p>
-                      </h5>
+      {/* testimonials section */}
+      <section className="w-full py-16 md:py-28 lg:py-32 bg-[#050714] relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-[rgba(147,51,234,0.1)] rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-[rgba(59,130,246,0.1)] rounded-full blur-[80px]"></div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-[rgba(147,51,234,0.14)] text-[#9333ea] mb-4">
+              Reviews
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white tracking-tight">
+              What Our Users Say
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground">
+              Join thousands of professionals who've transformed their careers
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonial.map((testimonial, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-black/40 to-black/60 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+                <div className="relative z-10">
+                  {/* 3D Quote icon */}
+                  {/* <div className="mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center shadow-lg border border-gray-700 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-full"></div>
+                      <span
+                        className="text-white text-2xl font-bold relative z-10 drop-shadow-lg"
+                        style={{
+                          textShadow:
+                            "2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)",
+                        }}
+                      >
+                        &quot;
+                      </span>
                     </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                  </div> */}
+
+                  {/* Quote text */}
+                  <p className="text-white/90 text-lg leading-relaxed mb-6 font-medium">
+                    {testimonial.quote}
+                  </p>
+
+                  {/* Author info */}
+                  <div className="flex items-center space-x-4">
+                    <div className="relative">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 p-0.5">
+                        <Image
+                          width={48}
+                          height={48}
+                          src={testimonial.image}
+                          alt={testimonial.author}
+                          className="w-full h-full rounded-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-lg group-hover:text-primary transition-colors">
+                        {testimonial.author}
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-primary text-sm font-medium">
+                        {testimonial.company}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

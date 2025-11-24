@@ -41,15 +41,50 @@ export async function generateQuiz() {
         }
       ]
     }
-  `;
+  Rules:
+- Use double quotes only
+- No trailing commas
+- No comments
+- No markdown formatting
+- Return pure JSON only`;
 
     const result = await model.generateContent(prompt);
     const response = result.response;
 
     const text = response.text();
 
-    const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
-    const quiz = JSON.parse(cleanedText);
+    let cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
+    // Additional cleaning steps
+    cleanedText = cleanedText
+      .replace(/,(\s*[}\]])/g, "$1") // Remove trailing commas
+      .replace(/([{,]\s*)(\w+):/g, '$1"$2":') // Quote unquoted keys
+      .replace(/:\s*'([^']*)'/g, ':"$1"') // Convert single quotes to double
+      .replace(/\n/g, " ") // Remove line breaks that might break JSON
+      .trim();
+    let quiz;
+    try {
+      quiz = JSON.parse(cleanedText);
+    } catch (parseError) {
+      console.log("JSON Parse Error. Raw response:", text);
+      console.log("Cleaned response:", cleanedText);
+      console.log("Parse error:", parseError.message);
+
+      // Fallback: Try to extract JSON using regex
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        const extractedJson = jsonMatch[0]
+          .replace(/,(\s*[}\]])/g, "$1")
+          .replace(/([{,]\s*)(\w+):/g, '$1"$2":');
+        quiz = JSON.parse(extractedJson);
+      } else {
+        throw new Error("No valid JSON found in AI response");
+      }
+    }
+
+    // Validate the quiz structure
+    if (!quiz.questions || !Array.isArray(quiz.questions)) {
+      throw new Error("Invalid quiz structure: missing questions array");
+    }
 
     return quiz.questions;
   } catch (error) {

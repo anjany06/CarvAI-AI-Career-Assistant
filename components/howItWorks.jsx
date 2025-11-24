@@ -21,19 +21,23 @@ const HowItWorks = () => {
           {howItWorks.map((item, index) => (
             <div
               key={index}
-              className="group relative flex flex-col items-center text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 shadow-lg transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
+              className="group relative flex flex-col items-center text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl 
+              p-8 shadow-lg transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
             >
               {/* Rotating border effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 via-primary/30 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 via-primary/30 to-white/20 opacity-0 group-hover:opacity-100 
+              transition-opacity duration-500 -z-10 blur-sm"></div>
 
               {/* Step number badge */}
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg z-10">
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center
+               text-white text-sm font-bold shadow-lg z-10">
                 {index + 1}
               </div>
 
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center">
-                <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-primary/50">
+                <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 text-white 
+                shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-primary/50">
                   <span className="text-2xl">{item.icon}</span>
                 </div>
 

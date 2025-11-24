@@ -3,10 +3,8 @@
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.5-flash",
+const model = genAI.getGenerativeModel({model: "gemini-2.5-flash",
 });
 export const generateAIInsights = async (industry) => {
   const prompt = `
@@ -31,26 +29,17 @@ export const generateAIInsights = async (industry) => {
 `;
   const result = await model.generateContent(prompt);
   const response = result.response;
-
   const text = response.text();
-
   const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
   return JSON.parse(cleanedText);
 };
-
 export async function getIndustryInsights() {
-  const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorised");
-
+  const { userId } = await auth();if (!userId) throw new Error("Unauthorised");
   const user = await db.user.findUnique({
-    where: {
-      clerkUserId: userId,
+    where: {clerkUserId: userId,
     },
-    include: {
-      industryInsight: true,
-    },
-  });
-
+    include: {industryInsight: true,
+    },});
   if (!user) throw new Error("User not found");
 
   if (!user.industryInsight) {

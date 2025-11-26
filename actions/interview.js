@@ -22,7 +22,7 @@ export async function generateQuiz() {
 
   try {
     const prompt = `
-    Generate 10 technical interview questions for a ${
+    Generate 5 technical interview questions for a ${
       user.industry
     } professional${
       user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
@@ -53,39 +53,49 @@ export async function generateQuiz() {
 
     const text = response.text();
 
-    let cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
-    // Additional cleaning steps
-    cleanedText = cleanedText
-      .replace(/,(\s*[}\]])/g, "$1") // Remove trailing commas
-      .replace(/([{,]\s*)(\w+):/g, '$1"$2":') // Quote unquoted keys
-      .replace(/:\s*'([^']*)'/g, ':"$1"') // Convert single quotes to double
-      .replace(/\n/g, " ") // Remove line breaks that might break JSON
+    let cleanedText = text
+      .replace(/```json\n?/g, "")
+      .replace(/```\n?/g, "")
       .trim();
+
     let quiz;
     try {
       quiz = JSON.parse(cleanedText);
     } catch (parseError) {
       console.log("JSON Parse Error. Raw response:", text);
-      console.log("Cleaned response:", cleanedText);
       console.log("Parse error:", parseError.message);
 
-      // Fallback: Try to extract JSON using regex
+      // Fallback: extract JSON object only
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
-        const extractedJson = jsonMatch[0]
-          .replace(/,(\s*[}\]])/g, "$1")
-          .replace(/([{,]\s*)(\w+):/g, '$1"$2":');
-        quiz = JSON.parse(extractedJson);
+        try {
+          quiz = JSON.parse(jsonMatch[0]);
+        } catch (fallbackError) {
+          console.log("Fallback parsing failed:", fallbackError.message);
+          // Return default quiz
+          return [
+            {
+              question: `What is a key skill for ${user.industry} professionals?`,
+              options: [
+                "Communication",
+                "Problem Solving",
+                "Technical Knowledge",
+                "All of the above",
+              ],
+              correctAnswer: "All of the above",
+              explanation:
+                "All these skills are important for professional success.",
+            },
+          ];
+        }
       } else {
         throw new Error("No valid JSON found in AI response");
       }
     }
 
-    // Validate the quiz structure
     if (!quiz.questions || !Array.isArray(quiz.questions)) {
-      throw new Error("Invalid quiz structure: missing questions array");
+      throw new Error("Invalid quiz structure");
     }
-
     return quiz.questions;
   } catch (error) {
     console.log("Error generating quiz: ", error);

@@ -62,43 +62,59 @@ const items = [
 
 export default function Faqs() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-3xl font-bold mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-muted-foreground">
-            Find answers to common questions about our platform
-          </p>
+    <section id="faq" className="relative py-24 lg:py-32 border-t border-white/5 bg-black">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
+          <div>
+            <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
+              <span className="w-8 h-[1px] bg-white/30" />
+              FAQ
+            </span>
+            <h2
+              className="text-4xl lg:text-6xl tracking-tight text-white"
+              style={{ fontFamily: "var(--font-instrument), serif" }}
+            >
+              Frequently asked
+              <br />
+              questions.
+            </h2>
+          </div>
+          <div className="max-w-xs text-white/50 text-sm leading-relaxed">
+            Find answers to common questions about our platform and features.
+          </div>
         </div>
-        <div className="max-w-6xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            {items.map((item) => (
-              <AccordionItem value={item.id} key={item.id} className="py-2">
-                <AccordionPrimitive.Header className="flex">
-                  <AccordionPrimitive.Trigger className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md py-2 text-left text-sm text-[15px] leading-6 font-semibold transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0">
-                    <span className="flex items-center gap-3">
-                      <item.icon
+
+        {/* Unified Grid Styling Block */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <div className="bg-black p-8 lg:p-12 w-full col-span-1 md:col-span-2">
+            <Accordion type="single" collapsible className="w-full">
+              {items.map((item) => (
+                <AccordionItem value={item.id} key={item.id} className="border-b border-white/5 last:border-0 py-2 group">
+                  <AccordionPrimitive.Header className="flex">
+                    <AccordionPrimitive.Trigger className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 py-4 text-left text-lg leading-6 font-medium text-white transition-all outline-none disabled:pointer-events-none disabled:opacity-50 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 hover:text-white/80">
+                      <span className="flex items-center gap-4">
+                        <item.icon
+                          size={24}
+                          className="shrink-0 text-white/30 group-hover:text-white/60 transition-colors"
+                          aria-hidden="true"
+                        />
+                        <span>{item.title}</span>
+                      </span>
+                      <PlusIcon
                         size={16}
-                        className="shrink-0 opacity-60"
+                        className="pointer-events-none shrink-0 text-white/40 transition-transform duration-200"
                         aria-hidden="true"
                       />
-                      <span>{item.title}</span>
-                    </span>
-                    <PlusIcon
-                      size={16}
-                      className="pointer-events-none shrink-0 opacity-60 transition-transform duration-200"
-                      aria-hidden="true"
-                    />
-                  </AccordionPrimitive.Trigger>
-                </AccordionPrimitive.Header>
-                <AccordionContent className="text-muted-foreground ps-7 pb-2">
-                  {item.content}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                    </AccordionPrimitive.Trigger>
+                  </AccordionPrimitive.Header>
+                  <AccordionContent className="text-white/50 text-base ps-[44px] pb-6 leading-relaxed">
+                    {item.content}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

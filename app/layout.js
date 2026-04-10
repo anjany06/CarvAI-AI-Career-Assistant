@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Barlow, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
@@ -9,6 +9,8 @@ import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
+const barlow = Barlow({ weight: ["300", "400", "500", "600", "700"], subsets: ["latin"], variable: "--font-barlow" });
+const instrument = Instrument_Serif({ weight: "400", subsets: ["latin"], variable: "--font-instrument" });
 
 export const metadata = {
   title: "CarvAI",
@@ -26,7 +28,7 @@ export default function RootLayout({ children }) {
       }}
     >
       <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className} `}>
+        <body className={`${barlow.className} ${instrument.variable}`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"

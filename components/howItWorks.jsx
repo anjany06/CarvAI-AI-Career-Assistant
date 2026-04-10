@@ -1,66 +1,90 @@
+"use client";
+
 import { howItWorks } from "@/data/howItWorks";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const HowItWorks = () => {
+  const [time, setTime] = useState(new Date());
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    // Only update time on client explicitly
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full py-16 md:py-28 lg:py-32 bg-[#050714] relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-[rgba(242,0,255,0.14)] text-[#ea00ff] mb-4">
-            Process
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white tracking-tight">
-            How It Works
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Four simple steps to accelerate your career growth
-          </p>
+    <section id="how-it-works" ref={sectionRef} className="relative py-24 lg:py-32 border-t border-white/5 bg-black">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
+          <div>
+            <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
+              <span className="w-8 h-[1px] bg-white/30" />
+              Process
+            </span>
+            <h2
+              className={`text-4xl lg:text-6xl tracking-tight text-white transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              style={{ fontFamily: "var(--font-instrument), serif" }}
+            >
+              Four simple steps to
+              <br />
+              accelerate your career.
+            </h2>
+          </div>
+          <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-white/50 font-bold">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              Live
+            </span>
+            <span className="text-white/20">|</span>
+            {/* Suppress Hydration Mismatch for Time */}
+            <span suppressHydrationWarning>{time.toLocaleTimeString()}</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {/* Grid Container mimicking grid gap 1px border line strategy from your snippet */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 rounded-2xl overflow-hidden shadow-2xl">
           {howItWorks.map((item, index) => (
             <div
               key={index}
-              className="group relative flex flex-col items-center text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl 
-              p-8 shadow-lg transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
+              className={`bg-black p-8 lg:p-12 transition-all duration-700 hover:bg-neutral-900 cursor-default ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Rotating border effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 via-primary/30 to-white/20 opacity-0 group-hover:opacity-100 
-              transition-opacity duration-500 -z-10 blur-sm"></div>
-
-              {/* Step number badge */}
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center
-               text-white text-sm font-bold shadow-lg z-10">
-                {index + 1}
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 text-white 
-                shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-primary/50">
-                  <span className="text-2xl">{item.icon}</span>
+              <div className="flex justify-between items-start mb-16">
+                <div
+                  className="text-7xl lg:text-8xl tracking-tight text-white/90"
+                  style={{ fontFamily: "var(--font-instrument), serif" }}
+                >
+                  0{index + 1}
                 </div>
-
-                <h3 className="font-semibold text-xl text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">
-                  {item.title}
-                </h3>
-
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  {item.description}
-                </p>
+                <div className="[&_svg]:!w-10 [&_svg]:!h-10 [&_svg]:!text-white/40 opacity-80 mix-blend-screen">
+                  {item.icon}
+                </div>
               </div>
-
-              {/* Connecting line for desktop */}
-              {index < howItWorks.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-primary/50 to-transparent"></div>
-              )}
+              <div>
+                <h3 className="text-2xl text-white font-medium mb-3 tracking-tight">{item.title}</h3>
+                <div className="text-base text-white/50 leading-relaxed max-w-[90%]">{item.description}</div>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      {/* Decorative elements */}
-      <div className="absolute top-40 right-0 w-64 h-64 bg-[rgba(179,0,255,0.1)] rounded-full blur-[80px]"></div>
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-[rgba(0,255,255,0.1)] rounded-full blur-[80px]"></div>
     </section>
   );
 };

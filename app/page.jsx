@@ -10,10 +10,12 @@ import { howItWorks } from "@/data/howItWorks";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import TestimonialsSection from "@/components/testimonials";
+import { ReactLenis } from 'lenis/react';
 
 export default function Home() {
   return (
-    <div>
+    <ReactLenis root>
+      <div>
       <HeroSection />
 
       {/* <Achievements /> */}
@@ -65,5 +67,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </ReactLenis>
   );
 }

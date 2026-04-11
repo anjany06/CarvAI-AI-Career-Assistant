@@ -38,7 +38,7 @@ const FeatureCard = ({ className, children, delay = 0 }) => (
 
 export default function Features() {
   return (
-    <section id="features" className="relative w-full bg-zinc-950 text-white overflow-hidden border-t border-white/5">
+    <section id="features" className="relative w-full bg-[#0F1115] text-white overflow-hidden border-t border-white/5">
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
 
         {/* Header */}

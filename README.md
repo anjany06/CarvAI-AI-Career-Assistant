@@ -1,6 +1,6 @@
 # CarvAi – AI-Powered Career Helper
 
-![carvAi](public/front.png)
+![carvAi](public/carvai-readme.png)
 
 ## 🌟 Overview
 🚀 **CarvAi** is an AI-powered career helper designed to help professionals and job seekers with resume building, industry insights, online assessments, and cover letter generation. With a modern UI and AI-driven capabilities, it simplifies career development effortlessly.

@@ -124,7 +124,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-col items-center gap-4 pb-8 px-4"
+          className="flex flex-col items-center gap-4 pb-8 px-4 mt-2"
         >
           <div className="liquid-glass rounded-full px-4 py-1.5 text-xs text-white/80">
             Powered by modern AI and scalable tech stack

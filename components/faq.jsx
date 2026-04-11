@@ -62,7 +62,7 @@ const items = [
 
 export default function Faqs() {
   return (
-    <section id="faq" className="relative py-24 lg:py-32 border-t border-white/5 bg-black">
+    <section id="faq" className="relative py-24 lg:py-32 border-t border-white/5 bg-zinc-950">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
@@ -86,7 +86,7 @@ export default function Faqs() {
         </div>
 
         {/* Unified Grid Styling Block */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 rounded-2xl overflow-hidden shadow-2xl">
           <div className="bg-black p-8 lg:p-12 w-full col-span-1 md:col-span-2">
             <Accordion type="single" collapsible className="w-full">
               {items.map((item) => (

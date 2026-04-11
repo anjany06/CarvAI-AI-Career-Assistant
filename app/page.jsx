@@ -29,7 +29,7 @@ export default function Home() {
       <Faqs />
 
       {/* Action section */}
-      <section className="relative py-24 lg:py-32 border-t border-white/5 bg-zinc-950">
+      <section className="relative py-24 lg:py-32 border-t border-white/5 bg-[#0F1115]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-black to-black pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">

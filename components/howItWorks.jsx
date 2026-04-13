@@ -27,7 +27,7 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="relative py-24 lg:py-32 border-t border-white/5 bg-zinc-950">
+    <section id="how-it-works" ref={sectionRef} className="relative py-24 lg:py-32 border-t border-white/5 bg-black">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">

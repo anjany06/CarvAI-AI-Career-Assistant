@@ -38,7 +38,7 @@ const FeatureCard = ({ className, children, delay = 0 }) => (
 
 export default function Features() {
   return (
-    <section id="features" className="relative w-full bg-[#0F1115] text-white overflow-hidden border-t border-white/5">
+    <section id="features" className="relative w-full bg-black text-white overflow-hidden border-t border-white/5">
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
 
         {/* Header */}
@@ -85,30 +85,30 @@ export default function Features() {
 
                 {/* Box 1 */}
                 <div className="bg-black/20 rounded-xl p-4 flex flex-col justify-between border border-white/5">
-                  <span className="text-xs font-semibold text-white/50 mb-3 tracking-wider">MARKET OUTLOOK</span>
+                  <span className="text-xs font-light text-white mb-3 tracking-wider">MARKET OUTLOOK</span>
                   <motion.div
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     className="flex items-center gap-2 mt-auto"
                   >
                     <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-                    <span className="text-xl font-bold text-white tracking-tight">Positive</span>
+                    <span className="text-xl font-normal text-white tracking-tight">Positive</span>
                   </motion.div>
                 </div>
 
                 {/* Box 2 */}
                 <div className="bg-black/20 rounded-xl p-4 flex flex-col justify-between border border-white/5">
-                  <span className="text-xs font-semibold text-white/50 mb-3 tracking-wider">INDUSTRY GROWTH</span>
-                  <span className="text-xl font-bold text-white tracking-tight mt-auto">
+                  <span className="text-xs font-light text-white mb-3 tracking-wider">INDUSTRY GROWTH</span>
+                  <span className="text-xl font-normal text-white tracking-tight mt-auto">
                     +<Counter from={0} to={12} duration={2} symbol="%" />
                   </span>
                 </div>
 
                 {/* Box 3 */}
                 <div className="bg-black/20 rounded-xl p-4 flex flex-col justify-between border border-white/5 gap-2">
-                  <span className="text-xs font-semibold text-white/50 mb-1 tracking-wider">DEMAND LEVEL</span>
+                  <span className="text-xs font-light text-white mb-1 tracking-wider">DEMAND LEVEL</span>
                   <div className="flex items-center gap-3 mt-auto">
-                    <span className="text-xl font-bold text-white tracking-tight">High</span>
+                    <span className="text-xl font-normal text-white tracking-tight">High</span>
                     <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}

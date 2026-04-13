@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <section id="reviews" className="relative w-full py-24 bg-[#0F1115] border-t border-white/5 overflow-hidden">
+    <section id="reviews" className="relative w-full py-24 bg-black border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Section Label */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">

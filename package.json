@@ -36,7 +36,7 @@
     "fs": "^0.0.1-security",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.3",
-    "inngest": "^3.31.13",
+    "inngest": "^4.3.0",
     "jspdf": "^3.0.0",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",

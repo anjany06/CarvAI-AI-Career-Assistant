@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { TypewriterText, AnimatedBlurText } from "./animated-text";
 
 // Extended existing testimonials with metrics for the new design structure
 const testimonials = [
@@ -55,16 +57,21 @@ export default function TestimonialsSection() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
             <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
-              <span className="w-8 h-[1px] bg-white/30" />
-              REVIEWS
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: "2rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="h-[1px] bg-white/30" 
+              />
+              <TypewriterText text="REVIEWS" delay={500} />
             </span>
             <h2
-              className="text-4xl lg:text-6xl tracking-tight text-white"
+              className="text-4xl lg:text-6xl tracking-tight text-white flex flex-col gap-2"
               style={{ fontFamily: "var(--font-instrument), serif" }}
             >
-              What our users
-              <br />
-              are saying.
+              <AnimatedBlurText delay={0.2} className="block">What our users</AnimatedBlurText>
+              <AnimatedBlurText delay={0.6} className="block">are saying.</AnimatedBlurText>
             </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest text-white/50 font-bold">

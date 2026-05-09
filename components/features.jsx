@@ -8,6 +8,7 @@ import {
   Sparkles,
   ClipboardCheck
 } from "lucide-react";
+import { TypewriterText, AnimatedBlurText } from "./animated-text";
 
 // Number Counter hook for smooth counting
 const Counter = ({ from, to, duration, symbol = "" }) => {
@@ -45,20 +46,27 @@ export default function Features() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24 relative z-20">
           <div>
             <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
-              <span className="w-8 h-[1px] bg-white/30" />
-              FEATURES
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: "2rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="h-[1px] bg-white/30" 
+              />
+              <TypewriterText text="FEATURES" delay={500} />
             </span>
             <h2
-              className="text-4xl lg:text-6xl tracking-tight text-white"
+              className="text-4xl lg:text-6xl tracking-tight text-white flex flex-col gap-2"
               style={{ fontFamily: "var(--font-instrument), serif" }}
             >
-              Everything you need to
-              <br />
-              grow your career.
+              <AnimatedBlurText delay={0.2} className="block">Everything you need to</AnimatedBlurText>
+              <AnimatedBlurText delay={0.6} className="block">grow your career.</AnimatedBlurText>
             </h2>
           </div>
           <div className="max-w-xs text-white/50 text-sm leading-relaxed">
-            Powerful AI tools to help you build, prepare, and stay ahead in your career.
+            <AnimatedBlurText delay={1.0}>
+              Powerful AI tools to help you build, prepare, and stay ahead in your career.
+            </AnimatedBlurText>
           </div>
         </div>
 

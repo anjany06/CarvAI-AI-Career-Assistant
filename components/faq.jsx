@@ -14,6 +14,8 @@ import {
   PlusIcon,
   ZapIcon,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import { TypewriterText, AnimatedBlurText } from "./animated-text";
 
 const items = [
   {
@@ -68,20 +70,27 @@ export default function Faqs() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
             <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
-              <span className="w-8 h-[1px] bg-white/30" />
-              FAQ
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: "2rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="h-[1px] bg-white/30" 
+              />
+              <TypewriterText text="FAQ" delay={500} />
             </span>
             <h2
-              className="text-4xl lg:text-6xl tracking-tight text-white"
+              className="text-4xl lg:text-6xl tracking-tight text-white flex flex-col gap-2"
               style={{ fontFamily: "var(--font-instrument), serif" }}
             >
-              Frequently asked
-              <br />
-              questions.
+              <AnimatedBlurText delay={0.2} className="block">Frequently asked</AnimatedBlurText>
+              <AnimatedBlurText delay={0.6} className="block">questions.</AnimatedBlurText>
             </h2>
           </div>
           <div className="max-w-xs text-white/50 text-sm leading-relaxed">
-            Find answers to common questions about our platform and features.
+            <AnimatedBlurText delay={1.0}>
+              Find answers to common questions about our platform and features.
+            </AnimatedBlurText>
           </div>
         </div>
 

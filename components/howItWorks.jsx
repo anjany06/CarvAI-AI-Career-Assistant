@@ -2,6 +2,8 @@
 
 import { howItWorks } from "@/data/howItWorks";
 import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { TypewriterText, AnimatedBlurText } from "./animated-text";
 
 const HowItWorks = () => {
   const [time, setTime] = useState(new Date());
@@ -33,17 +35,22 @@ const HowItWorks = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
             <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/50 mb-6 font-bold">
-              <span className="w-8 h-[1px] bg-white/30" />
-              Process
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: "2rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="h-[1px] bg-white/30" 
+              />
+              <TypewriterText text="PROCESS" delay={500} />
             </span>
             <h2
-              className={`text-4xl lg:text-6xl tracking-tight text-white transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              className={`text-4xl lg:text-6xl tracking-tight text-white flex flex-col gap-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               style={{ fontFamily: "var(--font-instrument), serif" }}
             >
-              Four simple steps to
-              <br />
-              accelerate your career.
+              <AnimatedBlurText delay={0.2} className="block">Four simple steps to</AnimatedBlurText>
+              <AnimatedBlurText delay={0.6} className="block">accelerate your career.</AnimatedBlurText>
             </h2>
           </div>
           <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-white/50 font-bold">

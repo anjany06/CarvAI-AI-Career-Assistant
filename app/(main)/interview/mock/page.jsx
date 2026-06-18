@@ -4,6 +4,10 @@ import Link from "next/link";
 import React from "react";
 import Quiz from "../_components/quiz";
 
+// Allow the Gemini-backed server actions (generateQuiz / saveQuizResult)
+// more time before Vercel kills the function. Max 60s on Hobby, 300s on Pro.
+export const maxDuration = 60;
+
 const MockInterviewPage = () => {
   return (
     <div className="container mx-auto space-y-4 py-6">

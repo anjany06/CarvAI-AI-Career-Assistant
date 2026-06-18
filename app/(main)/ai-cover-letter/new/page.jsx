@@ -4,6 +4,10 @@ import Link from "next/link";
 import React from "react";
 import CoverLetterGenerator from "../_components/cover-letter-generator";
 
+// Give the Gemini-backed generateLetter server action room before Vercel
+// times out the function. Max 60s on Hobby, 300s on Pro.
+export const maxDuration = 60;
+
 const NewCoverLetter = () => {
   return (
     <div className="container mx-auto py-6">
